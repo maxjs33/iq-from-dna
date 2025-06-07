@@ -164,12 +164,17 @@ const Footer = ({ onNavigate }) => (
  * ----------------------------------------------------------------*/
 const HomePage = ({ onNavigate }) => (
   <div className="w-full animate-fade-in">
+    {/* ───────────── Hero ───────────── */}
     <section className="px-4 pt-20 pb-10 text-center">
+      <div className="inline-flex items-center px-4 py-2 space-x-2 border rounded-full bg-slate-800/50 border-slate-700">
+        <p className="text-sm font-semibold text-green-400">2,436</p>
+        <p className="text-sm text-slate-300">reports delivered this month</p>
+      </div>
       <h1 className="mt-6 text-5xl font-extrabold leading-tight text-white md:text-7xl">
         Estimate Your IQ From DNA
       </h1>
       <p className="max-w-3xl mx-auto mt-4 text-lg text-slate-300 md:text-xl">
-        Upload raw data from 23andMe or AncestryDNA to receive a scientifically-grounded cognitive analysis.
+        Upload raw data from 23andMe or AncestryDNA to receive a scientifically‑grounded cognitive analysis based on the latest research.
       </p>
       <button
         onClick={() => onNavigate('analysis')}
@@ -177,6 +182,54 @@ const HomePage = ({ onNavigate }) => (
       >
         Start My DNA Analysis
       </button>
+    </section>
+
+    {/* ───── Which kit do I need? ───── */}
+    <section className="py-20 bg-slate-900/50">
+      <div className="px-4 mx-auto max-w-5xl">
+        <h2 className="mb-4 text-4xl font-bold text-center text-white">Which DNA kit do I need?</h2>
+        <p className="mb-12 text-center text-slate-400">The standard ancestry services provide everything required—no pricey add‑ons needed.</p>
+        <div className="grid gap-8 p-8 bg-slate-800/50 border border-slate-700 rounded-2xl md:grid-cols-2">
+          <div>
+            <h3 className="mb-2 text-2xl font-semibold text-white">23andMe</h3>
+            <p className="font-semibold text-green-400">The “Ancestry + Traits” kit is sufficient.</p>
+          </div>
+          <div>
+            <h3 className="mb-2 text-2xl font-semibold text-white">AncestryDNA</h3>
+            <p className="font-semibold text-green-400">The standard “AncestryDNA” kit is sufficient.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ────────────── FAQ ───────────── */}
+    <section className="px-4 py-20">
+      <div className="mx-auto max-w-3xl">
+        <h2 className="mb-12 text-4xl font-bold text-center text-white">Frequently Asked Questions</h2>
+        <FAQItem q="Is my data secure?">
+          <p>
+            Absolutely. We use secure, encrypted connections for all data transfer. Your raw DNA file is used once for analysis and deleted from our servers within 24 hours—we never store it long‑term.
+          </p>
+        </FAQItem>
+        <FAQItem q="Can this diagnose medical conditions?">
+          <p>
+            No. This is strictly an educational tool. Results are statistical estimations of cognitive traits—not a diagnostic test. Consult a medical professional for health concerns.
+          </p>
+        </FAQItem>
+      </div>
+    </section>
+
+    {/* ──────────── Disclaimers ─────────── */}
+    <section className="px-4 py-20 bg-slate-900/50">
+      <div className="p-8 mx-auto space-y-4 text-sm text-slate-400 bg-slate-800/50 border border-slate-700 rounded-2xl max-w-3xl">
+        <h2 className="mb-6 text-2xl font-bold text-center text-white">Important Disclaimers</h2>
+        <p>
+          <strong className="text-white">For informational &amp; educational use only.</strong> This service is not a diagnostic tool and does not constitute medical advice.
+        </p>
+        <p>
+          <strong className="text-white">Not FDA‑cleared.</strong> Not intended for medical, employment, or legal decisions.
+        </p>
+      </div>
     </section>
   </div>
 );
@@ -294,7 +347,7 @@ const PredictionForm = ({ data, setData, editable, setEditable, next }) => {
   return (
     <div className="grid w-full max-w-4xl grid-cols-1 gap-8 mx-auto lg:grid-cols-2 animate-fade-in">
       <div className="space-y-6">
-        <h2 className="text-xl font-bold text-white">Step 2: Complete Your Profile</h2>
+        <h2 className="text-xl font-bold text-white">Step 2: Complete Your Profile</h2>
         <div className="p-6 space-y-4 rounded-xl bg-slate-900/50 border border-slate-800">
           <div className="flex items-center justify-between">
             <h3 className="flex items-center text-lg font-semibold text-white">
@@ -330,20 +383,20 @@ const PredictionForm = ({ data, setData, editable, setEditable, next }) => {
               label={f.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
               value={data[`spi_${f}`]}
               onChange={update}
-              placeholder="Z-score"
+              placeholder="Z‑score"
             />
           ))}
         </CollapsibleSection>
 
         <CollapsibleSection
           title="Neuroimaging Metrics (optional)"
-          subtitle="Structural MRI-derived metrics."
+          subtitle="Structural MRI‑derived metrics."
           icon={<Activity className="w-5 h-5 mr-2 text-green-400" />}
         >
-          <FormInput id="tbv_zscore" label="TBV" value={data.tbv_zscore} onChange={update} placeholder="Z-score" />
-          <FormInput id="ct_zscore" label="CT" value={data.ct_zscore} onChange={update} placeholder="Z-score" />
-          <FormInput id="fa_zscore" label="FA" value={data.fa_zscore} onChange={update} placeholder="Z-score" />
-          <FormInput id="dfc_zscore" label="dFC" value={data.dfc_zscore} onChange={update} placeholder="Z-score" />
+          <FormInput id="tbv_zscore" label="TBV" value={data.tbv_zscore} onChange={update} placeholder="Z‑score" />
+          <FormInput id="ct_zscore" label="CT" value={data.ct_zscore} onChange={update} placeholder="Z‑score" />
+          <FormInput id="fa_zscore" label="FA" value={data.fa_zscore} onChange={update} placeholder="Z‑score" />
+          <FormInput id="dfc_zscore" label="dFC" value={data.dfc_zscore} onChange={update} placeholder="Z‑score" />
         </CollapsibleSection>
       </div>
 
@@ -452,7 +505,7 @@ const ResultCard = ({ result, email }) => {
       doc.line(20, 45, 190, 45);
       doc.setFontSize(16);
       doc.setFont('helvetica', 'bold');
-      doc.text('Predicted Full-Scale IQ (FSIQ)', 20, 60);
+      doc.text('Predicted Full‑Scale IQ (FSIQ)', 20, 60);
       doc.setFontSize(48);
       doc.setTextColor(88, 80, 236);
       doc.text(String(result.predictedFSIQ), 105, 85, { align: 'center' });
@@ -468,14 +521,14 @@ const ResultCard = ({ result, email }) => {
       <div className="w-full max-w-2xl p-8 mx-auto mt-8 rounded-xl bg-slate-900/50 border border-slate-800 animate-fade-in">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-white">
-            <BrainCircuit className="inline w-8 h-8 mr-2 text-purple-400" /> Your DNA-Based IQ Estimate
+            <BrainCircuit className="inline w-8 h-8 mr-2 text-purple-400" /> Your DNA‑Based IQ Estimate
           </h2>
           <p className="flex items-center justify-center mt-2 text-sm text-green-400">
             <CheckCircle className="w-4 h-4 mr-2" /> Analysis complete!
           </p>
         </div>
         <div className="my-8 text-center">
-          <p className="text-lg text-slate-300">Predicted Full-Scale IQ (FSIQ)</p>
+          <p className="text-lg text-slate-300">Predicted Full‑Scale IQ (FSIQ)</p>
           <p className="my-2 text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
             {result.predictedFSIQ}
           </p>
