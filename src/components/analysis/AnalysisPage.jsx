@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { XCircle } from 'lucide-react';
-import UploadDropzone from '../ui/UploadDropzone';
+import { UploadDropzone } from '../ui/UploadDropzone'
 import PredictionStepper from '../ui/PredictionStepper';
 import PredictionForm from './PredictionForm';
 import PaymentScreen from './PaymentScreen';
