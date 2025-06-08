@@ -2,19 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add any custom CSS here */
-
-/* Custom styles */
-.container {
-  max-width: 1200px;
+/* Custom styles for better form styling */
+.prose {
+  color: inherit;
 }
 
-/* Smooth transitions */
-* {
-  transition: all 0.2s ease-in-out;
+.prose h3 {
+  @apply text-xl font-semibold mb-3 text-white;
 }
 
-/* Button hover effects */
-button:hover {
-  transform: translateY(-1px);
+.prose p {
+  @apply text-gray-300 mb-4;
 }
