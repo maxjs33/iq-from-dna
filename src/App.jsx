@@ -22,28 +22,28 @@ const mockApi = {
 };
 
 // --- Reusable UI Components ---
-const FormInput = ({ id, label, value, onChange, placeholder, step, disabled, type = "number" }) => (<div><label htmlFor={id} className="block text-sm text-slate-400 mb-1">{label}</label><input id={id} type={type} value={value || ""} onChange={(e) => onChange(id, e.target.value)} placeholder={placeholder} step={step} disabled={disabled} className="w-full p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white focus:border-blue-500 focus:outline-none" /></div>);
-const CollapsibleSection = ({ title, icon, children, subtitle }) => { const [isOpen, setIsOpen] = useState(false); return (<div className="bg-slate-900/50 rounded-xl p-6 border border-slate-800"><div className="flex items-center justify-between cursor-pointer" onClick={() => setIsOpen(!isOpen)}><div className="flex items-center"><div className="text-blue-400 mr-3">{icon}</div><div><h3 className="text-lg font-semibold text-white">{title}</h3>{subtitle && <p className="text-sm text-slate-400">{subtitle}</p>}</div></div><ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} /></div>{isOpen && <div className="mt-4 pt-4 border-t border-slate-700">{children}</div>}</div>); };
-const FAQItem = ({ q, children }) => { const [isOpen, setIsOpen] = useState(false); return (<div className="border-b border-slate-800 py-4"><button onClick={() => setIsOpen(!isOpen)} className="w-full text-left flex justify-between items-center text-white hover:text-blue-400 transition-colors"><span className="font-medium">{q}</span><ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} /></button>{isOpen && <div className="mt-3 text-slate-300 space-y-2">{children}</div>}</div>); };
+const FormInput = ({ id, label, value, onChange, placeholder, step, disabled, type = "number" }) => (<div><label htmlFor={id} className="block text-sm text-slate-400 mb-1">{label}</label><input id={id} type={type} value={value || ""} onChange={(e) => onChange(id, e.target.value)} placeholder={placeholder} step={step} disabled={disabled} className="w-full p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white focus:border-purple-500 focus:outline-none" /></div>);
+const CollapsibleSection = ({ title, icon, children, subtitle }) => { const [isOpen, setIsOpen] = useState(false); return (<div className="bg-slate-900/50 rounded-xl p-6 border border-slate-800"><div className="flex items-center justify-between cursor-pointer" onClick={() => setIsOpen(!isOpen)}><div className="flex items-center"><div className="text-purple-400 mr-3">{icon}</div><div><h3 className="text-lg font-semibold text-white">{title}</h3>{subtitle && <p className="text-sm text-slate-400">{subtitle}</p>}</div></div><ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} /></div>{isOpen && <div className="mt-4 pt-4 border-t border-slate-700">{children}</div>}</div>); };
+const FAQItem = ({ q, children }) => { const [isOpen, setIsOpen] = useState(false); return (<div className="border-b border-slate-800 py-4"><button onClick={() => setIsOpen(!isOpen)} className="w-full text-left flex justify-between items-center text-white hover:text-purple-400 transition-colors"><span className="font-medium">{q}</span><ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} /></button>{isOpen && <div className="mt-3 text-slate-300 space-y-2">{children}</div>}</div>); };
 
 // --- Page Components ---
 const Header = ({ onNavigate, currentPage }) => (
   <header className="py-6 px-4 md:px-8 flex justify-between items-center w-full max-w-7xl mx-auto">
     <button onClick={() => onNavigate('home')} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center">
         <BrainCircuit className="w-6 h-6 text-white" />
       </div>
-      <span className="text-2xl font-bold text-white">IQ from DNA</span>
+      <span className="text-2xl font-bold text-white">ThinQ</span>
     </button>
     <nav className="hidden md:flex items-center space-x-8">
-      <button onClick={() => onNavigate('home')} className={`font-medium transition-colors ${currentPage === 'home' ? 'text-blue-400' : 'text-slate-300 hover:text-white'}`}>Home</button>
-      <button onClick={() => onNavigate('about')} className={`font-medium transition-colors ${currentPage === 'about' ? 'text-blue-400' : 'text-slate-300 hover:text-white'}`}>About Us</button>
-      <button onClick={() => onNavigate('science')} className={`font-medium transition-colors ${currentPage === 'science' ? 'text-blue-400' : 'text-slate-300 hover:text-white'}`}>Our Science</button>
-      <button onClick={() => onNavigate('analysis')} className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Upload DNA Data</button>
+      <button onClick={() => onNavigate('home')} className={`font-medium transition-colors ${currentPage === 'home' ? 'text-purple-400' : 'text-slate-300 hover:text-white'}`}>Home</button>
+      <button onClick={() => onNavigate('about')} className={`font-medium transition-colors ${currentPage === 'about' ? 'text-purple-400' : 'text-slate-300 hover:text-white'}`}>About Us</button>
+      <button onClick={() => onNavigate('science')} className={`font-medium transition-colors ${currentPage === 'science' ? 'text-purple-400' : 'text-slate-300 hover:text-white'}`}>Our Science</button>
+      <button onClick={() => onNavigate('analysis')} className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all">Get Started</button>
     </nav>
     <div className="text-right text-sm">
-      <div className="text-blue-400 font-medium">maxjs33</div>
-      <div className="text-slate-400">{new Date().toISOString().replace('T', ' ').substring(0, 19)}</div>
+      <div className="text-purple-400 font-medium">maxjs33</div>
+      <div className="text-slate-400">2025-06-08 18:47:41</div>
     </div>
   </header>
 );
@@ -51,34 +51,41 @@ const Header = ({ onNavigate, currentPage }) => (
 const HomePage = ({ onNavigate }) => (
   <div className="w-full animate-fade-in">
     <section className="text-center py-20 px-4">
-      <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">Discover Your Cognitive Potential</h1>
-      <p className="text-lg md:text-xl text-slate-400 mt-6 max-w-3xl mx-auto">Using advanced genomic analysis of your existing 23andMe or AncestryDNA data</p>
-      <button onClick={() => onNavigate('analysis')} className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors">Get Started</button>
+      <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">Estimate Your IQ From DNA</h1>
+      <p className="text-lg md:text-xl text-slate-400 mt-6 max-w-3xl mx-auto">Upload raw data from 23andMe or AncestryDNA to receive a scientifically-grounded cognitive analysis based on the latest research.</p>
+      <button onClick={() => onNavigate('analysis')} className="mt-8 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all">Start My DNA Analysis</button>
     </section>
 
-    {/* Features Section */}
-    <section className="py-20 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-        <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800 text-center hover:border-slate-700 transition-colors">
-          <Microscope className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-4">Research-Grade Analysis</h3>
-          <p className="text-slate-300">Leveraging modern polygenic scoring methods based on recent scientific advances</p>
-        </div>
-        <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800 text-center hover:border-slate-700 transition-colors">
-          <Dna className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-4">Use Existing Data</h3>
-          <p className="text-slate-300">Simply upload your raw genotype data from 23andMe or AncestryDNA</p>
-        </div>
-        <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800 text-center hover:border-slate-700 transition-colors">
-          <Shield className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-4">Secure & Private</h3>
-          <p className="text-slate-300">Your genetic data is encrypted and never shared with third parties</p>
+    {/* DNA Kit Selection Section - Original Design */}
+    <section className="py-20 bg-slate-900/50">
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-white mb-4">Which DNA Kit Do I Need?</h2>
+        <p className="text-center text-slate-400 mb-12">You don't need the most expensive kits. The standard ancestry services provide everything we need.</p>
+        <div className="grid md:grid-cols-2 gap-8 text-left bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+          <div>
+            <h3 className="text-2xl font-semibold text-white mb-2">23andMe</h3>
+            <p className="text-green-400 mb-4">"Ancestry + Traits Service" is sufficient.</p>
+            <ul className="space-y-2 text-slate-300">
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Over 700,000 genetic variants</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Raw data download included</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Works with our polygenic scores</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold text-white mb-2">AncestryDNA</h3>
+            <p className="text-green-400 mb-4">The standard "AncestryDNA" kit is sufficient.</p>
+            <ul className="space-y-2 text-slate-300">
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />700,000+ genetic markers</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Raw data available for download</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Compatible with our algorithms</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     {/* What is IQ Section */}
-    <section className="py-20 px-4 bg-slate-900/30">
+    <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-white mb-8">What is IQ?</h2>
         <p className="text-lg text-slate-300 mb-6">IQ, or intelligence quotient, is a standardized metric used to quantify general cognitive ability, often referred to as "g." It is derived from a range of psychometric tests that assess various domains of mental functioning, including verbal comprehension, working memory, processing speed, and reasoning abilities.</p>
@@ -87,7 +94,7 @@ const HomePage = ({ onNavigate }) => (
     </section>
 
     {/* IQ Scale Section */}
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-slate-900/30">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-white text-center mb-12">Understanding IQ Scores</h2>
         <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800">
@@ -116,7 +123,7 @@ const HomePage = ({ onNavigate }) => (
                 <div className="text-xs">High</div>
               </div>
             </div>
-            <div className="bg-blue-600 flex-none w-1/12 flex items-center justify-center text-white text-sm font-medium">
+            <div className="bg-purple-600 flex-none w-1/12 flex items-center justify-center text-white text-sm font-medium">
               <div className="text-center">
                 <div className="font-bold">130+</div>
                 <div className="text-xs">Very High</div>
@@ -129,18 +136,18 @@ const HomePage = ({ onNavigate }) => (
     </section>
 
     {/* Who Is This For Section */}
-    <section className="py-20 px-4 bg-slate-900/30">
+    <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-white mb-8">Who Is This Service For?</h2>
         <p className="text-lg text-slate-300 mb-8">Our DNA-based estimate is designed for people who already possess raw genotype data from 23andMe or AncestryDNA and want a research-grade, non-diagnostic indication of cognitive potential. Typical users include:</p>
         <div className="grid md:grid-cols-2 gap-6 text-left">
           <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
-            <Users className="w-8 h-8 text-blue-400 mb-3" />
+            <Users className="w-8 h-8 text-purple-400 mb-3" />
             <h3 className="text-lg font-semibold text-white mb-2">Parents & Educators</h3>
             <p className="text-slate-300">Interested in early talent identification and gifted-program placement context</p>
           </div>
           <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
-            <BookOpen className="w-8 h-8 text-blue-400 mb-3" />
+            <BookOpen className="w-8 h-8 text-purple-400 mb-3" />
             <h3 className="text-lg font-semibold text-white mb-2">Researchers</h3>
             <p className="text-slate-300">Exploring the connections between genetics and cognitive abilities</p>
           </div>
@@ -149,7 +156,7 @@ const HomePage = ({ onNavigate }) => (
     </section>
 
     {/* FAQ Section */}
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-slate-900/30">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
         <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800">
@@ -163,7 +170,7 @@ const HomePage = ({ onNavigate }) => (
             <p>No. This is a research-grade estimation based on genomic data and should not be used for clinical diagnosis or decision-making. Professional IQ testing involves trained psychologists and comprehensive assessments.</p>
           </FAQItem>
           <FAQItem q="What environmental factors do you consider?">
-            <p>We include parental education level as an environmental variable in our model, which serves as a proxy for several developmental factors that influence cognitive ability.</p>
+            <p>We include the highest parental education level as an environmental variable in our model, which serves as a proxy for several developmental factors that influence cognitive ability.</p>
           </FAQItem>
           <FAQItem q="How do you protect my privacy?">
             <p>Your genetic data is encrypted during transmission and processing. We do not store your raw genetic data after analysis, and all results are de-identified and protected.</p>
@@ -172,39 +179,11 @@ const HomePage = ({ onNavigate }) => (
       </div>
     </section>
 
-    {/* Original Kit Selection Section */}
-    <section className="py-20 bg-slate-900/50">
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-4">Which DNA Kit Do I Need?</h2>
-        <p className="text-center text-slate-400 mb-12">You don't need the most expensive kits. The standard ancestry services provide everything we need.</p>
-        <div className="grid md:grid-cols-2 gap-8 text-left bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-2">23andMe</h3>
-            <p className="text-slate-400 mb-4">The basic Ancestry + Traits Service ($99) provides all the genetic markers we need for our analysis.</p>
-            <ul className="space-y-2 text-slate-300">
-              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Over 700,000 genetic variants</li>
-              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Raw data download included</li>
-              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Works with our polygenic scores</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-2">AncestryDNA</h3>
-            <p className="text-slate-400 mb-4">Their standard kit ($99) includes comprehensive genetic data suitable for our cognitive analysis.</p>
-            <ul className="space-y-2 text-slate-300">
-              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />700,000+ genetic markers</li>
-              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Raw data available for download</li>
-              <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />Compatible with our algorithms</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     {/* Disclaimer */}
     <section className="py-12 px-4">
-      <div className="max-w-3xl mx-auto bg-slate-800/50 p-6 rounded-xl border border-slate-700">
-        <h2 className="text-lg font-bold text-center text-white mb-4">Important Disclaimers</h2>
-        <div className="text-sm text-slate-400 space-y-2 text-center">
+      <div className="max-w-3xl mx-auto bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+        <h2 className="text-sm font-bold text-center text-white mb-2">Important Disclaimers</h2>
+        <div className="text-xs text-slate-400 text-center">
           <p><strong>DISCLAIMER:</strong> This service provides non-diagnostic, research-grade estimates only. Results should not be used for medical decisions or as a substitute for professional assessment. Individual cognitive performance depends on numerous factors beyond genetics.</p>
         </div>
       </div>
@@ -222,13 +201,13 @@ const AboutPage = () => (
 
     <div className="grid md:grid-cols-2 gap-12 mb-16">
       <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800">
-        <Target className="w-12 h-12 text-blue-400 mb-6" />
+        <Target className="w-12 h-12 text-purple-400 mb-6" />
         <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-        <p className="text-slate-300">At IQ from DNA, we're committed to making advances in genomic science accessible and meaningful to individuals. By translating complex genetic data into understandable insights about cognitive potential, we aim to empower people with knowledge that can inform educational and personal development decisions.</p>
+        <p className="text-slate-300">At ThinQ, we're committed to making advances in genomic science accessible and meaningful to individuals. By translating complex genetic data into understandable insights about cognitive potential, we aim to empower people with knowledge that can inform educational and personal development decisions.</p>
       </div>
       
       <div className="bg-slate-900/50 rounded-xl p-8 border border-slate-800">
-        <Shield className="w-12 h-12 text-blue-400 mb-6" />
+        <Shield className="w-12 h-12 text-purple-400 mb-6" />
         <h2 className="text-2xl font-bold text-white mb-4">Our Approach</h2>
         <p className="text-slate-300">We believe in the responsible application of genetic science. Our approach is research-driven, transparent, privacy-focused, and educational. We clearly communicate what our estimates can and cannot tell you, including their limitations.</p>
       </div>
@@ -244,11 +223,11 @@ const AboutPage = () => (
           { name: "Alex Matthews", role: "Data Privacy Officer", description: "Expert in bioethics and genetic privacy, ensuring highest standards of data protection." }
         ].map((member, idx) => (
           <div key={idx} className="bg-slate-900/50 rounded-xl p-6 border border-slate-800 text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
               <User className="w-10 h-10 text-white" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-1">{member.name}</h3>
-            <p className="text-blue-400 text-sm mb-3">{member.role}</p>
+            <p className="text-purple-400 text-sm mb-3">{member.role}</p>
             <p className="text-slate-300 text-sm">{member.description}</p>
           </div>
         ))}
@@ -263,7 +242,7 @@ const AboutPage = () => (
         { icon: <Award className="w-8 h-8" />, title: "Individual Empowerment", description: "Providing information for informed personal development decisions." }
       ].map((value, idx) => (
         <div key={idx} className="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
-          <div className="text-blue-400 mb-4">{value.icon}</div>
+          <div className="text-purple-400 mb-4">{value.icon}</div>
           <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
           <p className="text-slate-300 text-sm">{value.description}</p>
         </div>
@@ -293,13 +272,13 @@ const SciencePage = () => (
           {[
             { step: "1", title: "Genome-Wide Association Studies", description: "Scientists have conducted large studies with hundreds of thousands of people, measuring both their IQ scores and their genetic makeup. These studies identify which genetic variants are more common in people with higher or lower cognitive abilities.", icon: <Microscope className="w-8 h-8" /> },
             { step: "2", title: "Creating a Polygenic Score", description: "We use these research findings to create what's called a 'polygenic score' – essentially adding up the small effects of thousands of genetic variants found in your DNA. This score represents the genetic component of your cognitive potential.", icon: <Calculator className="w-8 h-8" /> },
-            { step: "3", title: "Incorporating Environmental Factors", description: "We include parental education level as an environmental factor in our model. This helps account for some non-genetic influences on cognitive development, as parental education correlates with many aspects of the child's learning environment.", icon: <Building className="w-8 h-8" /> },
+            { step: "3", title: "Incorporating Environmental Factors", description: "We include the highest parental education level as an environmental factor in our model. This helps account for some non-genetic influences on cognitive development, as parental education correlates with many aspects of the child's learning environment.", icon: <Building className="w-8 h-8" /> },
             { step: "4", title: "Statistical Modeling", description: "Our algorithms combine your genetic data with environmental information to produce an estimate of your Full-Scale IQ, along with a confidence interval that accounts for statistical uncertainty.", icon: <TrendingUp className="w-8 h-8" /> }
           ].map((item, idx) => (
             <div key={idx} className="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">{item.step}</div>
-                <div className="text-blue-400">{item.icon}</div>
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">{item.step}</div>
+                <div className="text-purple-400">{item.icon}</div>
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
               <p className="text-slate-300">{item.description}</p>
@@ -313,14 +292,14 @@ const SciencePage = () => (
         <p className="text-slate-300 text-lg mb-4">Our current model explains approximately 9-11% of the variance in IQ scores. This is scientifically significant but means that most of the factors influencing your cognitive abilities are not captured in this estimate. These include:</p>
         <div className="grid md:grid-cols-2 gap-4">
           <ul className="space-y-2 text-slate-300">
-            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-blue-400 mr-2" />Environmental factors beyond parental education</li>
-            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-blue-400 mr-2" />Gene-environment interactions</li>
-            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-blue-400 mr-2" />Rare genetic variants not captured by standard genotyping</li>
+            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-purple-400 mr-2" />Environmental factors beyond parental education</li>
+            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-purple-400 mr-2" />Gene-environment interactions</li>
+            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-purple-400 mr-2" />Rare genetic variants not captured by standard genotyping</li>
           </ul>
           <ul className="space-y-2 text-slate-300">
-            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-blue-400 mr-2" />Epigenetic effects (changes in how genes are expressed)</li>
-            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-blue-400 mr-2" />Random developmental factors</li>
-            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-blue-400 mr-2" />Cultural and educational influences</li>
+            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-purple-400 mr-2" />Epigenetic effects (changes in how genes are expressed)</li>
+            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-purple-400 mr-2" />Random developmental factors</li>
+            <li className="flex items-center"><ArrowRight className="w-4 h-4 text-purple-400 mr-2" />Cultural and educational influences</li>
           </ul>
         </div>
         <p className="text-slate-300 text-lg mt-4">This is why we provide a confidence interval with each estimate, acknowledging the uncertainty inherent in this type of prediction.</p>
@@ -338,9 +317,9 @@ const SciencePage = () => (
           ].map((paper, idx) => (
             <div key={idx} className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
               <h3 className="text-lg font-semibold text-white mb-2">{paper.title}</h3>
-              <p className="text-blue-400 text-sm mb-3">{paper.authors}</p>
+              <p className="text-purple-400 text-sm mb-3">{paper.authors}</p>
               <p className="text-slate-300">{paper.description}</p>
-              <button className="mt-3 text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+              <button className="mt-3 text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center">
                 <FileText className="w-4 h-4 mr-1" />Read Paper (PDF)
               </button>
             </div>
@@ -380,20 +359,20 @@ const AnalysisPage = ({ onNavigate }) => {
       default: return <UploadDropzone onUploadSuccess={handleUploadSuccess} setGlobalError={setError} />;
     }
   };
-  return (<div className="w-full animate-fade-in p-8"><div className="text-center my-10 w-full"><h1 className="text-4xl font-bold text-white flex items-center justify-center"><ShieldCheck className="mr-3 text-blue-400" />Secure DNA Analysis</h1><p className="text-slate-400 mt-2">Upload your genetic data for comprehensive cognitive assessment</p></div>{error && <div className="bg-red-900/50 border border-red-700 rounded-lg p-4 mb-6 text-center"><XCircle className="w-5 h-5 inline mr-2 text-red-400" /><span className="text-red-200">{error}</span></div>}{renderContent()}</div>);
+  return (<div className="w-full animate-fade-in p-8"><div className="text-center my-10 w-full"><h1 className="text-4xl font-bold text-white flex items-center justify-center"><ShieldCheck className="mr-3 text-purple-400" />Secure DNA Analysis</h1><p className="text-slate-400 mt-2">Upload your genetic data for comprehensive cognitive assessment</p></div>{error && <div className="bg-red-900/50 border border-red-700 rounded-lg p-4 mb-6 text-center"><XCircle className="w-5 h-5 inline mr-2 text-red-400" /><span className="text-red-200">{error}</span></div>}{renderContent()}</div>);
 };
 
 const UploadDropzone = ({ onUploadSuccess, setGlobalError }) => {
   const [isUploading, setIsUploading] = useState(false); const [gdprConsent, setGdprConsent] = useState(false);
   const onDrop = useCallback(async (acceptedFiles) => { const file = acceptedFiles[0]; if (!file || !gdprConsent) { setGlobalError(gdprConsent ? "No file selected." : "You must agree to the disclaimer before uploading."); return; } setIsUploading(true); setGlobalError(""); try { const result = await mockApi.createUploadJob(); onUploadSuccess(result.job_id); } catch (error) { setGlobalError("Upload failed. Please try again."); } finally { setIsUploading(false); } }, [gdprConsent, onUploadSuccess, setGlobalError]);
   const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: { 'text/plain': ['.txt'], 'application/zip': ['.zip'] }, maxFiles: 1 });
-  return (<div className="w-full max-w-2xl mx-auto"><div {...getRootProps()} className="p-10 border-2 border-dashed rounded-xl cursor-pointer border-slate-700 hover:border-slate-500"><input {...getInputProps()} /><div className="text-center">{isUploading ? <Loader className="w-12 h-12 text-blue-400 mx-auto mb-4 animate-spin" /> : <UploadCloud className="w-12 h-12 text-slate-400 mx-auto mb-4" />}<h3 className="text-xl font-semibold text-white mb-2">{isUploading ? "Uploading..." : "Upload Your DNA Data"}</h3><p className="text-slate-400">{isUploading ? "Processing your file..." : "Drag & drop your 23andMe or AncestryDNA file here, or click to select"}</p></div></div><div className="mt-6 p-4 bg-slate-900/50 rounded-lg border border-slate-800"><label className="flex items-start space-x-3 cursor-pointer"><input type="checkbox" checked={gdprConsent} onChange={(e) => setGdprConsent(e.target.checked)} className="mt-1 rounded border-slate-600 bg-slate-700 text-blue-500 focus:ring-blue-500" /><span className="text-sm text-slate-300">I understand this is for research and educational purposes only. Results are not medical advice and should not be used for clinical decisions. I consent to the processing of my genetic data for cognitive estimation analysis.</span></label></div></div>);
+  return (<div className="w-full max-w-2xl mx-auto"><div {...getRootProps()} className="p-10 border-2 border-dashed rounded-xl cursor-pointer border-slate-700 hover:border-slate-500"><input {...getInputProps()} /><div className="text-center">{isUploading ? <Loader className="w-12 h-12 text-purple-400 mx-auto mb-4 animate-spin" /> : <UploadCloud className="w-12 h-12 text-slate-400 mx-auto mb-4" />}<h3 className="text-xl font-semibold text-white mb-2">{isUploading ? "Uploading..." : "Upload Your DNA Data"}</h3><p className="text-slate-400">{isUploading ? "Processing your file..." : "Drag & drop your 23andMe or AncestryDNA file here, or click to select"}</p></div></div><div className="mt-6 p-4 bg-slate-900/50 rounded-lg border border-slate-800"><label className="flex items-start space-x-3 cursor-pointer"><input type="checkbox" checked={gdprConsent} onChange={(e) => setGdprConsent(e.target.checked)} className="mt-1 rounded border-slate-600 bg-slate-700 text-purple-500 focus:ring-purple-500" /><span className="text-sm text-slate-300">I understand this is for research and educational purposes only. Results are not medical advice and should not be used for clinical decisions. I consent to the processing of my genetic data for cognitive estimation analysis.</span></label></div></div>);
 };
 
-const PredictionStepper = ({ jobId, onComplete }) => { const steps = ["Upload", "QC", "Imputation", "PGS", "Finalizing"]; const [currentStep, setCurrentStep] = useState(0); useEffect(() => { if (jobId) { const interval = setInterval(() => { setCurrentStep(prev => { if (prev < steps.length - 1) return prev + 1; clearInterval(interval); setTimeout(onComplete, 1000); return prev; }); }, 2000); return () => clearInterval(interval); } }, [jobId, onComplete, steps.length]); return (<div className="w-full max-w-2xl mx-auto text-center"><h2 className="text-2xl font-bold text-white mb-8">Processing Your Data</h2><div className="space-y-4">{steps.map((step, idx) => (<div key={idx} className={`p-4 rounded-lg border ${idx <= currentStep ? 'bg-blue-900/50 border-blue-700 text-blue-200' : 'bg-slate-900/50 border-slate-700 text-slate-400'}`}><div className="flex items-center justify-center space-x-3">{idx < currentStep ? <CheckCircle className="w-5 h-5 text-green-400" /> : idx === currentStep ? <Loader className="w-5 h-5 animate-spin text-blue-400" /> : <div className="w-5 h-5 rounded-full border-2 border-slate-600" />}<span className="font-medium">{step}</span></div></div>))}</div><p className="text-slate-400 mt-6">Job ID: {jobId}</p></div>); };
-const PredictionForm = ({ formData, setFormData, isPgsEditable, setIsPgsEditable, onSubmit }) => { const handleFormUpdate = (id, value) => setFormData(prev => ({ ...prev, [id]: value })); return (<div className="w-full max-w-4xl mx-auto"><h2 className="text-2xl font-bold text-white text-center mb-8">Complete Your Profile</h2><div className="grid md:grid-cols-2 gap-8"><div className="space-y-6"><h3 className="text-lg font-semibold text-white flex items-center"><Dna className="w-5 h-5 mr-2 text-blue-400" />Polygenic Scores</h3><div className="bg-slate-900/50 rounded-lg p-6 border border-slate-800"><FormInput id="ea4_pgs" label="Educational Attainment PGS (EA4)" value={formData.ea4_pgs} onChange={handleFormUpdate} disabled={!isPgsEditable} step="0.01" /><FormInput id="int_pgs" label="Intelligence PGS (INT)" value={formData.int_pgs} onChange={handleFormUpdate} disabled={!isPgsEditable} step="0.01" /><button onClick={() => setIsPgsEditable(!isPgsEditable)} className="mt-3 text-blue-400 hover:text-blue-300 text-sm flex items-center"><Edit className="w-4 h-4 mr-1" />{isPgsEditable ? 'Lock scores' : 'Edit scores'}</button></div></div><div className="space-y-6"><h3 className="text-lg font-semibold text-white flex items-center"><User className="w-5 h-5 mr-2 text-blue-400" />Environmental Factors</h3><div className="bg-slate-900/50 rounded-lg p-6 border border-slate-800 space-y-4"><FormInput id="parent_education_years" label="Highest Parental Education (years)" value={formData.parent_education_years} onChange={handleFormUpdate} placeholder="16" /><div><label htmlFor="ancestry" className="block text-sm text-slate-400 mb-1">Primary Ancestry</label><select id="ancestry" value={formData.ancestry || ""} onChange={(e) => handleFormUpdate('ancestry', e.target.value)} className="w-full p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"><option value="">Select ancestry</option>{Object.keys(ANCESTRY_CALIBRATION).map(anc => <option key={anc} value={anc}>{anc}</option>)}</select></div><FormInput id="household_income" label="Household Income (USD)" value={formData.household_income} onChange={handleFormUpdate} placeholder="60000" /></div></div></div><div className="mt-8 text-center"><button onClick={onSubmit} className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Continue to Payment</button></div></div>); };
-const PaymentScreen = ({ onInitiatePayment, onTestBypass, email, setEmail }) => (<div className="w-full max-w-md mx-auto mt-12 p-10 text-center bg-slate-900/50 border border-slate-800 rounded-xl animate-fade-in"><h2 className="text-2xl font-bold text-white mb-6">Complete Your Analysis</h2><p className="text-slate-400 mb-8">Get your comprehensive cognitive genetics report for just $29.99</p><div className="mb-6"><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address" className="w-full p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white focus:border-blue-500 focus:outline-none" /></div><button onClick={onInitiatePayment} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mb-4">Pay $29.99 & Get Report</button><button onClick={onTestBypass} className="text-slate-400 hover:text-white text-sm">Skip payment (test mode)</button></div>);
-const WaitingForPaymentScreen = ({ email }) => (<div className="w-full max-w-md mx-auto mt-12 p-10 text-center bg-slate-900/50 border border-slate-800 rounded-xl animate-fade-in"><h2 className="text-2xl font-bold text-white mb-4">Processing Payment</h2><Loader className="w-8 h-8 text-blue-400 mx-auto mb-6 animate-spin" /><p className="text-slate-400">Finalizing your cognitive analysis...</p><p className="text-sm text-slate-500 mt-4">Report will be sent to: {email}</p></div>);
+const PredictionStepper = ({ jobId, onComplete }) => { const steps = ["Upload", "QC", "Imputation", "PGS", "Finalizing"]; const [currentStep, setCurrentStep] = useState(0); useEffect(() => { if (jobId) { const interval = setInterval(() => { setCurrentStep(prev => { if (prev < steps.length - 1) return prev + 1; clearInterval(interval); setTimeout(onComplete, 1000); return prev; }); }, 2000); return () => clearInterval(interval); } }, [jobId, onComplete, steps.length]); return (<div className="w-full max-w-2xl mx-auto text-center"><h2 className="text-2xl font-bold text-white mb-8">Processing Your Data</h2><div className="space-y-4">{steps.map((step, idx) => (<div key={idx} className={`p-4 rounded-lg border ${idx <= currentStep ? 'bg-purple-900/50 border-purple-700 text-purple-200' : 'bg-slate-900/50 border-slate-700 text-slate-400'}`}><div className="flex items-center justify-center space-x-3">{idx < currentStep ? <CheckCircle className="w-5 h-5 text-green-400" /> : idx === currentStep ? <Loader className="w-5 h-5 animate-spin text-purple-400" /> : <div className="w-5 h-5 rounded-full border-2 border-slate-600" />}<span className="font-medium">{step}</span></div></div>))}</div><p className="text-slate-400 mt-6">Job ID: {jobId}</p></div>); };
+const PredictionForm = ({ formData, setFormData, isPgsEditable, setIsPgsEditable, onSubmit }) => { const handleFormUpdate = (id, value) => setFormData(prev => ({ ...prev, [id]: value })); return (<div className="w-full max-w-4xl mx-auto"><h2 className="text-2xl font-bold text-white text-center mb-8">Complete Your Profile</h2><div className="grid md:grid-cols-2 gap-8"><div className="space-y-6"><h3 className="text-lg font-semibold text-white flex items-center"><Dna className="w-5 h-5 mr-2 text-purple-400" />Polygenic Scores</h3><div className="bg-slate-900/50 rounded-lg p-6 border border-slate-800"><FormInput id="ea4_pgs" label="Educational Attainment PGS (EA4)" value={formData.ea4_pgs} onChange={handleFormUpdate} disabled={!isPgsEditable} step="0.01" /><FormInput id="int_pgs" label="Intelligence PGS (INT)" value={formData.int_pgs} onChange={handleFormUpdate} disabled={!isPgsEditable} step="0.01" /><button onClick={() => setIsPgsEditable(!isPgsEditable)} className="mt-3 text-purple-400 hover:text-purple-300 text-sm flex items-center"><Edit className="w-4 h-4 mr-1" />{isPgsEditable ? 'Lock scores' : 'Edit scores'}</button></div></div><div className="space-y-6"><h3 className="text-lg font-semibold text-white flex items-center"><User className="w-5 h-5 mr-2 text-purple-400" />Environmental Factors</h3><div className="bg-slate-900/50 rounded-lg p-6 border border-slate-800 space-y-4"><FormInput id="parent_education_years" label="Highest Parental Education (years)" value={formData.parent_education_years} onChange={handleFormUpdate} placeholder="16" /><div><label htmlFor="ancestry" className="block text-sm text-slate-400 mb-1">Primary Ancestry</label><select id="ancestry" value={formData.ancestry || ""} onChange={(e) => handleFormUpdate('ancestry', e.target.value)} className="w-full p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white focus:border-purple-500 focus:outline-none"><option value="">Select ancestry</option>{Object.keys(ANCESTRY_CALIBRATION).map(anc => <option key={anc} value={anc}>{anc}</option>)}</select></div><FormInput id="household_income" label="Household Income (USD)" value={formData.household_income} onChange={handleFormUpdate} placeholder="60000" /></div></div></div><div className="mt-8 text-center"><button onClick={onSubmit} className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all">Continue to Payment</button></div></div>); };
+const PaymentScreen = ({ onInitiatePayment, onTestBypass, email, setEmail }) => (<div className="w-full max-w-md mx-auto mt-12 p-10 text-center bg-slate-900/50 border border-slate-800 rounded-xl animate-fade-in"><h2 className="text-2xl font-bold text-white mb-6">Complete Your Analysis</h2><p className="text-slate-400 mb-8">Get your comprehensive cognitive genetics report for just $29.99</p><div className="mb-6"><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address" className="w-full p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-white focus:border-purple-500 focus:outline-none" /></div><button onClick={onInitiatePayment} className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all mb-4">Pay $29.99 & Get Report</button><button onClick={onTestBypass} className="text-slate-400 hover:text-white text-sm">Skip payment (test mode)</button></div>);
+const WaitingForPaymentScreen = ({ email }) => (<div className="w-full max-w-md mx-auto mt-12 p-10 text-center bg-slate-900/50 border border-slate-800 rounded-xl animate-fade-in"><h2 className="text-2xl font-bold text-white mb-4">Processing Payment</h2><Loader className="w-8 h-8 text-purple-400 mx-auto mb-6 animate-spin" /><p className="text-slate-400">Finalizing your cognitive analysis...</p><p className="text-sm text-slate-500 mt-4">Report will be sent to: {email}</p></div>);
 
 const PredictionResultCard = ({ result, email }) => {
   const [showEmailModal, setShowEmailModal] = useState(true);
@@ -420,12 +399,12 @@ const PredictionResultCard = ({ result, email }) => {
             <BrainCircuit className="inline w-8 h-8 mr-2 text-purple-400"/>
             Your DNA-Based IQ Estimate
           </h2>
-          <p className="text-slate-400 mb-1">Generated: {new Date().toISOString().replace('T', ' ').substring(0, 19)}</p>
+          <p className="text-slate-400 mb-1">Generated: 2025-06-08 18:47:41</p>
         </div>
         
         <div className="my-8 text-center">
           <p className="text-lg text-slate-300 mb-2">Predicted Full-Scale IQ (FSIQ)</p>
-          <p className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
+          <p className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500 mb-2">
             {result.predictedFSIQ}
           </p>
           <p className="text-slate-400">95% CI: {result.ci_lower} - {result.ci_upper}</p>
@@ -434,11 +413,11 @@ const PredictionResultCard = ({ result, email }) => {
           <div className="mt-6 bg-slate-800/50 rounded-lg p-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-slate-300">Percentile Rank</span>
-              <span className="text-blue-400 font-bold">{percentile}%</span>
+              <span className="text-purple-400 font-bold">{percentile}%</span>
             </div>
             <div className="w-full bg-slate-700 rounded-full h-3">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" 
+                className="bg-gradient-to-r from-purple-500 to-indigo-600 h-3 rounded-full transition-all duration-1000" 
                 style={{ width: `${percentile}%` }}
               ></div>
             </div>
@@ -462,11 +441,11 @@ const PredictionResultCard = ({ result, email }) => {
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center animate-fade-in z-50">
           <div className="bg-slate-800 p-8 rounded-xl max-w-sm w-full border border-slate-700">
             <h3 className="text-xl font-bold text-white mb-4 text-center">Report Sent!</h3>
-            <Mail className="w-12 h-12 text-blue-400 mx-auto mb-4"/>
+            <Mail className="w-12 h-12 text-purple-400 mx-auto mb-4"/>
             <p className="text-slate-300 text-center mb-6">Your detailed cognitive analysis has been sent to <strong>{email}</strong></p>
             <button 
               onClick={() => setShowEmailModal(false)} 
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-2 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all"
             >
               Continue
             </button>
