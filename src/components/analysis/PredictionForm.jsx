@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dna, Edit, Shield, Activity } from 'lucide-react';
-import FormInput from '../ui/FormInput';
-import CollapsibleSection from '../ui/CollapsibleSection';
+import FormInput from '../UI/FormInput';
+import CollapsibleSection from '../UI/CollapsibleSection';
 import { SPI_FACTORS, ANCESTRY_CALIBRATION } from '../../constants/model';
 
 const PredictionForm = ({ data, setData, editable, setEditable, next }) => {

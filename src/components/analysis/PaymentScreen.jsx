@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestTube2 } from 'lucide-react';
-import FormInput from '../ui/FormInput';
+import FormInput from '../UI/FormInput';
 
 const PaymentScreen = ({ email, setEmail, pay, test }) => (
   <div className="w-full max-w-md p-10 mx-auto mt-12 text-center rounded-xl bg-slate-900/50 border border-slate-800 animate-fade-in">
