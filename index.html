@@ -1,14 +1,174 @@
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#09090b" />
-    <title>ThinQ – DNA‑Based IQ Estimate</title>
-    <link rel="icon" href="/favicon.ico" />
-  </head>
-  <body class="bg-slate-950">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IQ from DNA - Genetic Intelligence Estimation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>IQ from DNA</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="science.html">Our Science</a></li>
+          <li><a href="#" class="btn primary-btn">Upload DNA Data</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Discover Your Cognitive Potential</h1>
+      <p>Using advanced genomic analysis of your existing 23andMe or AncestryDNA data</p>
+      <a href="#" class="btn primary-btn">Get Started</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="feature-box">
+        <h3>Research-Grade Analysis</h3>
+        <p>Leveraging modern polygenic scoring methods based on recent scientific advances</p>
+      </div>
+      <div class="feature-box">
+        <h3>Use Existing Data</h3>
+        <p>Simply upload your raw genotype data from 23andMe or AncestryDNA</p>
+      </div>
+      <div class="feature-box">
+        <h3>Secure & Private</h3>
+        <p>Your genetic data is encrypted and never shared with third parties</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="what-is-iq">
+    <div class="container">
+      <h2>What is IQ?</h2>
+      <p>IQ, or intelligence quotient, is a standardized metric used to quantify general cognitive ability, often referred to as "g." It is derived from a range of psychometric tests that assess various domains of mental functioning, including verbal comprehension, working memory, processing speed, and reasoning abilities.</p>
+      <p>These tests are normed to produce a mean score of 100 with a standard deviation of 15, situating an individual's performance relative to their age-matched peers. Neuroscientific research has linked IQ to specific brain structures, with both genetic and environmental factors playing significant roles in cognitive development.</p>
+    </div>
+  </section>
+
+  <section class="iq-scale">
+    <div class="container">
+      <h2>Understanding IQ Scores</h2>
+      <div class="scale-container">
+        <div class="scale">
+          <div class="scale-segment very-low">
+            <span class="score">Below 70</span>
+            <span class="label">Very Low</span>
+          </div>
+          <div class="scale-segment low">
+            <span class="score">70-84</span>
+            <span class="label">Low</span>
+          </div>
+          <div class="scale-segment average">
+            <span class="score">85-114</span>
+            <span class="label">Average</span>
+          </div>
+          <div class="scale-segment high">
+            <span class="score">115-129</span>
+            <span class="label">High</span>
+          </div>
+          <div class="scale-segment very-high">
+            <span class="score">130+</span>
+            <span class="label">Very High</span>
+          </div>
+        </div>
+      </div>
+      <p class="scale-explanation">Because IQ follows a bell-curve distribution, roughly 68 percent of people fall between 85 and 115. Scores around 130 and higher place an individual in the top two percent of the population, while scores below 70 indicate significant cognitive challenges.</p>
+    </div>
+  </section>
+
+  <section class="for-who">
+    <div class="container">
+      <h2>Who Is This Service For?</h2>
+      <p>Our DNA-based estimate is designed for people who already possess raw genotype data from 23andMe or AncestryDNA and want a research-grade, non-diagnostic indication of cognitive potential. Typical users include:</p>
+      <ul>
+        <li>Parents interested in early talent identification</li>
+        <li>Educators seeking additional context for gifted-program placement</li>
+        <li>Researchers exploring genetics and cognition</li>
+        <li>Curious individuals who simply want to learn more about themselves</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <h3>What will my results look like?</h3>
+        <p>Your report lists a single predicted Full-Scale IQ (FSIQ), a 95 percent confidence interval, and a percentile rank. The point estimate represents the model's best guess given your genetic and environmental inputs. The confidence interval shows the range in which your true score would likely fall if you took a formal IQ test, and the percentile tells you what proportion of the population you are predicted to outperform.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How accurate is the prediction?</h3>
+        <p>Our model explains approximately 9-11% of the variance in IQ scores, representing the current state of the science. While this is significant, it means many factors beyond what we measure also contribute to cognitive performance.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>Is this a replacement for clinical IQ testing?</h3>
+        <p>No. This is a research-grade estimation based on genomic data and should not be used for clinical diagnosis or decision-making. Professional IQ testing involves trained psychologists and comprehensive assessments.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>What environmental factors do you consider?</h3>
+        <p>We include parental education level as an environmental variable in our model, which serves as a proxy for several developmental factors that influence cognitive ability.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3>How do you protect my privacy?</h3>
+        <p>Your genetic data is encrypted during transmission and processing. We do not store your raw genetic data after analysis, and all results are de-identified and protected.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="disclaimer">
+    <div class="container">
+      <div class="disclaimer-text">
+        <p>DISCLAIMER: This service provides non-diagnostic, research-grade estimates only. Results should not be used for medical decisions or as a substitute for professional assessment. Individual cognitive performance depends on numerous factors beyond genetics.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>IQ from DNA</h4>
+          <p>Unlocking genetic insights into cognitive potential</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="science.html">Our Science</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 IQ from DNA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
 </html>
