@@ -2,4 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* custom global styles if any */
+/* Add any custom CSS here */
+
+/* Custom styles */
+.container {
+  max-width: 1200px;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Button hover effects */
+button:hover {
+  transform: translateY(-1px);
+}
